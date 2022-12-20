@@ -1,4 +1,4 @@
-.wrapper{
+ .wrapper{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -9,16 +9,13 @@
     margin-bottom: 1rem;
 }
 .name {
-    width: 60%;
+    width: 40%;
+    font-weight: bold;
+
 }
-.status, .role{
+.status, .role, .action{
     width: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
-.name span {
-    font-weight: bold;
-}
-
