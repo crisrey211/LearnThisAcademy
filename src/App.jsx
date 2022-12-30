@@ -1,4 +1,3 @@
-import Titulo from "./components/Title"
 import UsersList from "./components/UsersList"
 
 const USERS = [{
@@ -16,9 +15,7 @@ const USERS = [{
 }]
 
 const App = () => (
-    <UsersList user={USERS}>
-        <Titulo>Listado de usuarios</Titulo>
-    </UsersList>
+    <UsersList user={USERS}/>
 )
 
 export default App
