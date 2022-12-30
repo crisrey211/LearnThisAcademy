@@ -17,13 +17,13 @@ const UsersList = ({ children, user }) => {
 
     return (< div className={style.wrapper} >
         {children}
-        <form onSubmit={ev => {
-            ev.preventDefault();
-            setSearch(ev.target.search.value)
-        }}>
-            <input type='search' name="search"></input>
-            <button type="submit">Buscar</button>
-        </form>
+        <input
+            type='text'
+            name='search'
+            value={ search }
+            onChange={ev => { 
+                setSearch(ev.target.value);
+        }}></input>
         {usersRendered}
     </div >)
 }
