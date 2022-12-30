@@ -8,7 +8,6 @@ const UserRow = ({ name, active: active, role, ...restProps }) => {
 
     const [activeState, setActiveState] = React.useState(active)
 
-    console.log(active);
 
     return < div className={style.wrapper} {...restProps}>
         <div className={style.name}>

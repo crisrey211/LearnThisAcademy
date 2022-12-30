@@ -12,6 +12,10 @@ const USERS = [{
     name: 'Jose Miguel Fernández',
     active: false,
     role: 'Profesor'
+},{
+    name: 'Antonio Manuel Gonzalez',
+    active: true,
+    role: 'student'
 }]
 
 const App = () => (
