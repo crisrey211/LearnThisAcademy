@@ -4,28 +4,27 @@ import UserStatus from "./UserStatus"
 import React from "react"
 
 
-const UserRow = ({ name, active: active, role, ...restProps }) => {
-
-    const [activeState, setActiveState] = React.useState(active)
+const UserRow = ({ id, name, active: active, role, toogleUserActive, ...restProps }) =>
 
 
-    return < div className={style.wrapper} {...restProps}>
+
+    < div className={style.wrapper} {...restProps}>
         <div className={style.name}>
             <span>{name}</span>
         </div>
         <div className={style.status}>
-            <UserStatus active={activeState} />
+            <UserStatus active={active} />
         </div >
         <div className={style.role}>
             <UserRole role={role} />
         </div>
         <div className={style.action}>
             <button onClick={() => {
-                setActiveState(!activeState)
+                toogleUserActive(id)
             }}
-            >{activeState ? 'Desactivar' : 'Activar'}</button>
+            >{active ? 'Desactivar' : 'Activar'}</button>
         </div>
     </div >
-}
+
 
 export default UserRow
