@@ -1,12 +1,14 @@
 import { useState } from "react";
+import { UsersContext } from "./lib/contexts/UsersContext";
 import style from "./UsersList.module.css"
 import UsersListFilters from "./UsersListFilters";
 import UsersListRows from "./UsersListRows";
 
+
 const UsersList = ({ initialUsers }) => {
     /*     const { search, onlyActive, sortBy, setSearch, setOnlyActive, setSortBy } = useFilters()*/
     const { search, onlyActive, sortBy, ...setFiltersFunctions } = useFilters()
-    
+
     const { users, toogleUserActive } = useUsers(initialUsers)
 
     let usersFiltered = filterUsersByName(users, search);
@@ -14,17 +16,20 @@ const UsersList = ({ initialUsers }) => {
     usersFiltered = sortUsers(usersFiltered, sortBy);
 
 
-    return (< div className={style.wrapper} >
-        <h1>Listado de usuarios</h1>
-        <UsersListFilters
-            /* se usa restOperator, se eliman los Setters por el rest (linea 24)*/
-            search={search}
-            onlyActive={onlyActive}
-            sortBy={sortBy}
-            {...setFiltersFunctions}
-        />
-        <UsersListRows user={usersFiltered} toogleUserActive={toogleUserActive} />
-    </div >)
+    return (
+        < div className={style.wrapper} >
+            <h1>Listado de usuarios</h1>
+            <UsersListFilters
+                /* se usa restOperator, se eliman los Setters por el rest (linea 24)*/
+                search={search}
+                onlyActive={onlyActive}
+                sortBy={sortBy}
+                {...setFiltersFunctions}
+            />
+            <UsersContext.Provider value={{ toogleUserActive }}>
+                <UsersListRows user={usersFiltered}  />
+            </UsersContext.Provider>
+        </div >)
 }
 
 const useFilters = () => {
@@ -64,7 +69,7 @@ const useUsers = (initialUsers) => {
 
         setUsers(newUsers);
     }
-    return {users,toogleUserActive};
+    return { users, toogleUserActive };
 }
 
 const filterActiveUser = (user, active) => {

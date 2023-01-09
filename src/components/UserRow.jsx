@@ -1,14 +1,15 @@
 import UserRole from "./UserRole"
 import style from "./UserRow.module.css"
 import UserStatus from "./UserStatus"
-import React from "react"
+import React, { useContext } from "react"
+import { UsersContext } from "./lib/contexts/UsersContext"
 
 
-const UserRow = ({ id, name, active: active, role, toogleUserActive, ...restProps }) =>
+const UserRow = ({ id, name, active: active, role, ...restProps }) => {
 
+    const {toogleUserActive} =  useContext(UsersContext)
 
-
-    < div className={style.wrapper} {...restProps}>
+    return < div className={style.wrapper} {...restProps}>
         <div className={style.name}>
             <span>{name}</span>
         </div>
@@ -25,6 +26,6 @@ const UserRow = ({ id, name, active: active, role, toogleUserActive, ...restProp
             >{active ? 'Desactivar' : 'Activar'}</button>
         </div>
     </div >
-
+}
 
 export default UserRow
