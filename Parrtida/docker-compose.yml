@@ -1,0 +1,9 @@
+version: '3'
+services:
+  kanban-ui:
+    build: ./LearnThisAcademy
+    container_name: kanban-ui
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./LearnThisAcademy:/app
