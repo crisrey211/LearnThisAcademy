@@ -7,7 +7,7 @@ import { UsersContext } from "./lib/contexts/UsersContext"
 
 const UserRow = ({ id, name, active: active, role, ...restProps }) => {
 
-    const {toogleUserActive} =  useContext(UsersContext)
+    const { toogleUserActive } = useContext(UsersContext)
 
     return < div className={style.wrapper} {...restProps}>
         <div className={style.name}>

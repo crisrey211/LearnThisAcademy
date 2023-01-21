@@ -27,7 +27,7 @@ const UsersList = ({ initialUsers }) => {
                 {...setFiltersFunctions}
             />
             <UsersContext.Provider value={{ toogleUserActive }}>
-                <UsersListRows user={usersFiltered}  />
+                <UsersListRows user={usersFiltered} />
             </UsersContext.Provider>
         </div >)
 }

@@ -7,7 +7,7 @@ const UsersListFilters = ({
     setOnlyActive,
     sortBy,
     setSortBy
-}) => 
+}) =>
     <form className={style.form}>
         <input
             type='text'
