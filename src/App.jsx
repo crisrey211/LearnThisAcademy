@@ -14,7 +14,7 @@ const USERS = [{
     username: 'Miguelañez',
     name: 'Jose Miguel Fernández',
     active: false,
-    role: 'Profesor'
+    role: 'other'
 }, {
     username: 'El Crack',
     name: 'Antonio Manuel Gonzalez',
