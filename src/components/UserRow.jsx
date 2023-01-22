@@ -3,16 +3,17 @@ import style from "./UserRow.module.css"
 import UserStatus from "./UserStatus"
 import React, { useContext } from "react"
 import { UsersContext } from "./lib/contexts/UsersContext"
+import UserDisplay from "./UserDisplay"
 
 
-const UserRow = ({ username, active: active, role, ...restProps }) => {
+const UserRow = ({ username, name, active: active, role, ...restProps }) => {
 
 
     return < div className={style.wrapper} {...restProps}>
         <div className={style.name}>
-            <span>{name}</span>
+            <UserDisplay name={name} username={username} />
         </div>
-        <div className={style.status}> 
+        <div className={style.status}>
             <UserStatus active={active} />
         </div >
         <div className={style.role}>
