@@ -12,7 +12,7 @@ const UserRow = ({ username, active: active, role, ...restProps }) => {
         <div className={style.name}>
             <span>{name}</span>
         </div>
-        <div className={style.status}>
+        <div className={style.status}> 
             <UserStatus active={active} />
         </div >
         <div className={style.role}>
