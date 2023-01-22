@@ -1,4 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Finlandica&family=Open+Sans:ital,wght@0,400;1,300;1,500&family=Roboto:ital,wght@0,700;1,100;1,400;1,700&family=Rubik+80s+Fade&display=swap');
-body{
-    font-family: 'Roboto', sans-serif;
+:root {
+  --title-1: 2rem;
+  --title-2: 1.5rem;
+  --title-3: 1.25rem;
+  --text-sm: 0.875rem;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
 }

@@ -5,9 +5,8 @@ import React, { useContext } from "react"
 import { UsersContext } from "./lib/contexts/UsersContext"
 
 
-const UserRow = ({ id, name, active: active, role, ...restProps }) => {
+const UserRow = ({ username, active: active, role, ...restProps }) => {
 
-    const { toogleUserActive } = useContext(UsersContext)
 
     return < div className={style.wrapper} {...restProps}>
         <div className={style.name}>
@@ -19,12 +18,7 @@ const UserRow = ({ id, name, active: active, role, ...restProps }) => {
         <div className={style.role}>
             <UserRole role={role} />
         </div>
-        <div className={style.action}>
-            <button onClick={() => {
-                toogleUserActive(id)
-            }}
-            >{active ? 'Desactivar' : 'Activar'}</button>
-        </div>
+        <div className={style.action}></div>
     </div >
 }
 

@@ -9,7 +9,7 @@ const UsersList = ({ initialUsers }) => {
     /*     const { search, onlyActive, sortBy, setSearch, setOnlyActive, setSortBy } = useFilters()*/
     const { search, onlyActive, sortBy, ...setFiltersFunctions } = useFilters()
 
-    const { users, toogleUserActive } = useUsers(initialUsers)
+    const { users } = useUsers(initialUsers)
 
     let usersFiltered = filterUsersByName(users, search);
     usersFiltered = filterActiveUser(usersFiltered, onlyActive);
@@ -26,9 +26,7 @@ const UsersList = ({ initialUsers }) => {
                 sortBy={sortBy}
                 {...setFiltersFunctions}
             />
-            <UsersContext.Provider value={{ toogleUserActive }}>
-                <UsersListRows user={usersFiltered} />
-            </UsersContext.Provider>
+            <UsersListRows user={usersFiltered} />
         </div >)
 }
 
@@ -59,17 +57,7 @@ const useFilters = () => {
 const useUsers = (initialUsers) => {
     const [users, setUsers] = useState(initialUsers)
 
-    const toogleUserActive = (userId) => {
-        const newUsers = [...users];
-
-        const userIndex = newUsers.findIndex(item => item.id === userId);
-        if (userIndex === -1) return;
-
-        newUsers[userIndex].active = !newUsers[userIndex].active;
-
-        setUsers(newUsers);
-    }
-    return { users, toogleUserActive };
+    return { users };
 }
 
 const filterActiveUser = (user, active) => {
