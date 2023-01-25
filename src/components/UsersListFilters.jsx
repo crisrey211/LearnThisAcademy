@@ -1,5 +1,6 @@
 import InputChexbox from './forms/InputChexbox';
 import InputSearch from './forms/InputSearch';
+import Select from './forms/Select';
 import style from './UsersListFilters.module.css'
 
 const UsersListFilters = ({
@@ -22,19 +23,19 @@ const UsersListFilters = ({
                 checked={onlyActive}
                 className={style.checkbox}
                 onChange={
-                ev => {
-                    setOnlyActive(ev.target.checked)
-                }} />
+                    ev => {
+                        setOnlyActive(ev.target.checked)
+                    }} />
             <p>Solo activos</p>
         </div>
-        <select value={sortBy} onChange={ev => {
+        <Select value={sortBy} onChange={ev => {
             setSortBy(Number(ev.target.value))
         }}>
             <option value={0}>Por defecto</option>
             <option value={1}>Por nombre</option>
             <option value={2}>Por rol</option>
             {!onlyActive && <option value={3}>Por activación</option>}
-        </select>
+        </Select>
     </form>
 
 
