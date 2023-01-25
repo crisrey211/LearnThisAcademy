@@ -18,7 +18,7 @@ const UsersList = ({ initialUsers }) => {
 
     return (
         < div className={style.wrapper} >
-            <h1>Listado de usuarios</h1>
+            <h1 className={style.title}>Listado de usuarios</h1>
             <UsersListFilters
                 /* se usa restOperator, se eliman los Setters por el rest (linea 24)*/
                 search={search}

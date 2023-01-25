@@ -1,13 +1,17 @@
 .form {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
+  padding: 1.5rem 0;
 }
 .active {
   display: flex;
   align-items: center;
 }
-.checkbox{
-  margin-right: .75rem;
+.checkbox {
+  margin-right: 0.75rem;
+}
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 1rem;
 }

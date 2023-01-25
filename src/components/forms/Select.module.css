@@ -8,6 +8,7 @@
   border-radius: var(--radius-sm);
   appearance: none;
   padding-right: 3rem;
+  cursor: pointer;
 }
 .select:focus {
   box-shadow: var(--shadow-md);
