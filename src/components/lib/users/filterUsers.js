@@ -41,3 +41,10 @@ export const filterUsersByName = (user, search) => {
   const lowerCaseSearch = search.toLowerCase();
   return user.filter(item => item.name.toLowerCase().includes(lowerCaseSearch));
 };
+
+export const paginateUsers = (users, page, itemsPerPage) => {
+  const startIndex = (page - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+
+  return users.slice(startIndex, endIndex);
+};

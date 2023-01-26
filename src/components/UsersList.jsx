@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useFilters } from "./lib/hooks/useFilters";
-import { filterActiveUser, filterUsersByName, sortUsers } from "./lib/users/filterUsers";
+import { filterActiveUser, filterUsersByName, paginateUsers, sortUsers } from "./lib/users/filterUsers";
 import style from "./UsersList.module.css";
 import UsersListFilters from "./UsersListFilters";
 import UsersListRows from "./UsersListRows";
@@ -9,13 +9,10 @@ import UsersListRows from "./UsersListRows";
 const UsersList = ({ initialUsers }) => {
     /*     const { search, onlyActive, sortBy, setSearch, setOnlyActive, setSortBy } = useFilters()*/
     const { search, onlyActive, sortBy, ...setFiltersFunctions } = useFilters()
+    const [page, setPage] = useState(1)
+    const [itemsPerPage, setItemsPerPage] = useState(3)
 
-    const { users } = useUsers(initialUsers)
-
-    let usersFiltered = filterUsersByName(users, search);
-    usersFiltered = filterActiveUser(usersFiltered, onlyActive);
-    usersFiltered = sortUsers(usersFiltered, sortBy);
-
+    const { users } = getUsers(initialUsers, { search, onlyActive, sortBy, page, itemsPerPage })
 
     return (
         < div className={style.wrapper} >
@@ -27,20 +24,20 @@ const UsersList = ({ initialUsers }) => {
                 sortBy={sortBy}
                 {...setFiltersFunctions}
             />
-            <UsersListRows user={usersFiltered} />
+            <UsersListRows user={users} />
         </div >)
 }
 
 
 
-const useUsers = (initialUsers) => {
-    const [users, setUsers] = useState(initialUsers)
+const getUsers = (initialUsers, { search, onlyActive, sortBy, page, itemsPerPage }) => {
+    let usersFiltered = filterUsersByName(initialUsers, search);
+    usersFiltered = filterActiveUser(usersFiltered, onlyActive);
+    usersFiltered = sortUsers(usersFiltered, sortBy);
+    usersFiltered = paginateUsers(usersFiltered, page, itemsPerPage)
 
-    return { users };
+
+    return { users: usersFiltered };
 }
-
-
-
-
 
 export default UsersList
