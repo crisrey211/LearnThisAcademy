@@ -1,9 +1,10 @@
+import { USER_ROLES } from '../constants/userRoles'
 import style from './UserRole.module.css'
 
 const ROLE_STYLES = {
-    teacher: ['Profesor', style.teacher],
-    student: ['Estudiante', style.student],
-    other: ['Otros', style.other]
+    [USER_ROLES.TEACHER]: ['Profesor', style.teacher],
+    [USER_ROLES.STUDENT]: ['Estudiante', style.student],
+    [USER_ROLES.OTHER]: ['Otros', style.other]
 }
 
 
