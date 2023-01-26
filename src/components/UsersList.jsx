@@ -3,6 +3,7 @@ import { useFilters } from "./lib/hooks/useFilters";
 import { filterActiveUser, filterUsersByName, paginateUsers, sortUsers } from "./lib/users/filterUsers";
 import style from "./UsersList.module.css";
 import UsersListFilters from "./UsersListFilters";
+import UsersListPagination from "./UsersListPagination";
 import UsersListRows from "./UsersListRows";
 
 
@@ -10,7 +11,7 @@ const UsersList = ({ initialUsers }) => {
     /*     const { search, onlyActive, sortBy, setSearch, setOnlyActive, setSortBy } = useFilters()*/
     const { search, onlyActive, sortBy, ...setFiltersFunctions } = useFilters()
     const [page, setPage] = useState(1)
-    const [itemsPerPage, setItemsPerPage] = useState(3)
+    const [itemsPerPage, setItemsPerPage] = useState(2)
 
     const { users } = getUsers(initialUsers, { search, onlyActive, sortBy, page, itemsPerPage })
 
@@ -25,6 +26,7 @@ const UsersList = ({ initialUsers }) => {
                 {...setFiltersFunctions}
             />
             <UsersListRows user={users} />
+            <UsersListPagination page={page} itemsPerPage={itemsPerPage} setPage={setPage} setItemsPerPage={setItemsPerPage} />
         </div >)
 }
 
