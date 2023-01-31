@@ -1,8 +1,11 @@
 import React from 'react'
+import IconButton from './buttons/IconButton'
 import Select from './forms/Select'
 import style from './UsersListPagination.module.css'
+import SearchIcon from './icons/SearchIcon'
+import PageSelector from './forms/PageSelector'
 
-const UsersListPagination = ({ page, itemsPerPage, setPage, setItemsPerPage }) =>
+const UsersListPagination = ({ page, itemsPerPage, setPage, setItemsPerPage, totalPages }) =>
     <div className={style.wrapper}>
         <div className={style.itemsPerPage}>
             <Select
@@ -15,6 +18,7 @@ const UsersListPagination = ({ page, itemsPerPage, setPage, setItemsPerPage }) =
             </Select>
             <p>Elementos por página</p>
         </div>
+        <PageSelector page={page} setPage={setPage} totalPages={totalPages} />
     </div>
 
 
